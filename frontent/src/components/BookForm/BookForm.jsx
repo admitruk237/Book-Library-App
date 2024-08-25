@@ -9,7 +9,6 @@ const BookForm = () => {
     e.preventDefault();
     if (title && author) {
       //dispath action
-      console.log(title, author);
 
       setTitle('');
       setAuthor('');
