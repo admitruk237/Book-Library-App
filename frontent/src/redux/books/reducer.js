@@ -8,6 +8,8 @@ const booksReducer = (state = initialState, action) => {
       return [...state, action.payload];
 
     default:
-      break;
+      return state;
   }
 };
+
+export default booksReducer;
