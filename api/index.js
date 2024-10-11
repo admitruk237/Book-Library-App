@@ -6,10 +6,20 @@ const app = express();
 
 app.use(cors());
 
-app.get('/random-book', (req, res) => {
+function getRundomBook() {
   const randomIndex = Math.floor(Math.random() * booksData.length);
   const randomBook = booksData[randomIndex];
-  res.json(randomBook);
+  return randomBook;
+}
+
+app.get('/random-book', (req, res) => {
+  res.json(getRundomBook());
+});
+
+app.get('/random-book-delayed', (req, res) => {
+  setTimeout(() => {
+    res.json(getRundomBook());
+  }, 2000);
 });
 
 const port = process.env.PORT || 4000;
